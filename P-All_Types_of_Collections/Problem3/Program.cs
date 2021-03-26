@@ -31,17 +31,17 @@ namespace Problem3
             courseGrades["MIS3303"].Add(0.79);
 
         
-            double sum = 0;
-            double average = 0;
             foreach (string courseCode in courseGrades.Keys)
             {
+                double sum = 0;
+                double average = 0;
                 List<double> grades = courseGrades[courseCode];
 
-                for (double i = 0; i < courseGrades.Count; i++)
+                for (int i = 0; i < courseGrades.Count; i++)
                 {
-                    sum = sum + courseGrades[i];
-                    average = sum / courseGrades.Count;
+                    sum = sum + grades[i];
                 }
+                average = sum / courseGrades.Count;
                 Console.WriteLine($"The average for {courseCode} is {average.ToString("P2")}");
             }
 

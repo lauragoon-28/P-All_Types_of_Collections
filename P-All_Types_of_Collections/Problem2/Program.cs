@@ -13,17 +13,16 @@ namespace Problem2
 
             List<double> grades = new List<double>();
 
-            string answerDone = " ";
+            string answerDone = "no";
             double grade = 0;
             while (answerDone != "yes")
             {
-                Console.WriteLine("Please enter all of your grades.");
+                Console.WriteLine("Please enter one of your grades.");
                 string answer = Console.ReadLine();
 
                 while (double.TryParse(answer, out grade) == false)
                 {
                     Console.WriteLine("Invalid answer. Please enter a number");
-                    Console.WriteLine("Please enter in an exam grade.(Enter -1 when done)");
                     answer = Console.ReadLine();
                 }
 
@@ -34,13 +33,14 @@ namespace Problem2
             }
 
             double sumGrade = 0;
-            for (int i = 0; i < grades.Count; i++)
+            foreach (double currentGrade in grades)
             {
-                sumGrade = sumGrade + grades[i];
+                sumGrade = sumGrade + currentGrade;
             }
             double averageScore = sumGrade / grades.Count;
 
-            Console.WriteLine($"Your grade average is {averageScore.ToString("N2")}!");
+            Console.WriteLine($"Your grade average is {averageScore.ToString("N2")}.");
+
 
         }
     }
